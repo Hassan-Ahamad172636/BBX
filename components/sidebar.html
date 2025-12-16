@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Right Sidebar</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Open Button -->
+  <button 
+    onclick="openSidebar()"
+    class="fixed top-6 right-6 bg-blue-600 text-white px-4 py-2 rounded-lg shadow">
+    Open Sidebar
+  </button>
+
+  <!-- Overlay -->
+  <div 
+    id="overlay"
+    onclick="closeSidebar()"
+    class="fixed inset-0 bg-black/40 hidden">
+  </div>
+
+  <!-- Sidebar -->
+  <aside 
+    id="sidebar"
+    class="fixed top-0 right-0 h-full w-72 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center p-4 border-b">
+      <h2 class="text-lg font-semibold">Menu</h2>
+      <button onclick="closeSidebar()" class="text-xl">&times;</button>
+    </div>
+
+    <!-- Links -->
+    <nav class="p-4 space-y-4">
+      <a href="#" class="block text-gray-700 hover:text-blue-600">Dashboard</a>
+      <a href="#" class="block text-gray-700 hover:text-blue-600">Profile</a>
+      <a href="#" class="block text-gray-700 hover:text-blue-600">Settings</a>
+      <a href="#" class="block text-gray-700 hover:text-blue-600">Logout</a>
+    </nav>
+  </aside>
+
+  <!-- JS -->
+  <script>
+    function openSidebar() {
+      document.getElementById('sidebar').classList.remove('translate-x-full');
+      document.getElementById('overlay').classList.remove('hidden');
+    }
+
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.add('translate-x-full');
+      document.getElementById('overlay').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
